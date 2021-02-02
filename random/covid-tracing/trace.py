@@ -107,8 +107,12 @@ def trace(f1: ResultEntry, me: ResultEntry, path, depth=2):
 
 
 if __name__ == '__main__':
-    f1 = ResultEntry('18021117')
-    me = ResultEntry('18021388')
+    if len(sys.argv) < 2:
+        print('python trace.py <your student ID>')
+        print('  Eg. python trace.py 18020001')
+        exit(0)
+    f1 = ResultEntry('18021117')  # the first confirmed F1 in UET, change if you need to track anyone else.
+    me = ResultEntry(sys.argv[1])
 
     try:
         trace(f1, me, (f1.masvTitle,))
