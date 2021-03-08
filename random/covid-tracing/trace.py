@@ -112,6 +112,7 @@ if __name__ == '__main__':
         print('  Eg. python trace.py 18020001')
         exit(0)
     f1 = ResultEntry('18021117')  # the first confirmed F1 in UET, change if you need to track anyone else.
+    # f1 = ResultEntry('19021113')
     me = ResultEntry(sys.argv[1])
 
     try:
