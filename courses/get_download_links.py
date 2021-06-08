@@ -2,6 +2,8 @@ import requests
 import os
 import logging
 import http.client
+import sys
+import re
 from scrapy import Selector
 from pprint import pprint
 
@@ -16,8 +18,8 @@ from pprint import pprint
 USERNAME = os.environ['UET_USER']
 PASSWORD = os.environ['UET_PASS']
 
-COURSE_ID = 5676
-login_page_url = "https://courses.uet.vnu.edu.vn/alternateLogin/index.php"
+COURSE_ID = 6305
+login_page_url = "https://courses.uet.vnu.edu.vn/login/index.php"
 login_post_url = "https://courses.uet.vnu.edu.vn/login/index.php"
 course_url = 'https://courses.uet.vnu.edu.vn/course/view.php?id={}'
 resource_url = 'https://courses.uet.vnu.edu.vn/mod/resource/view.php?id={}'
@@ -32,13 +34,13 @@ ses = requests.Session()
 # Login
 r = ses.get(login_page_url, headers=headers)
 
-# sel = Selector(text=r.text)
-# LOGINTOKEN = sel.xpath('//input[@name="logintoken"]/@value').extract()[0]
+sel = Selector(text=r.text)
+LOGINTOKEN = sel.xpath('//input[@name="logintoken"]/@value').extract()[0]
 
 data = {
     'username': USERNAME,
     'password': PASSWORD,
-    # 'logintoken': LOGINTOKEN
+    'logintoken': LOGINTOKEN
 }
 
 r = ses.post(login_post_url, data=data, headers=headers)
@@ -51,3 +53,13 @@ resources = sel.xpath(resource_path).extract()
 for x in resources:
     if 'resource' in x:
         print(x)
+
+if len(sys.argv[1]):
+    if os.path.isdir(sys.argv[1]):
+        dwn = [x for x in resources if 'resource' in x]
+        for d in dwn:
+            r = ses.get(d)
+            cd = r.headers['Content-Disposition']
+            fname = re.findall("filename=\"(.+)\"", cd)[0]
+            with open(os.path.join(sys.argv[1], fname), 'wb+') as f:
+                f.write(r.content)
