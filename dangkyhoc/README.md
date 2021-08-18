@@ -5,7 +5,7 @@
 A script to help with logging in as dkmh website usually deal with high traffic just by hiding the login form.
 
 ```
-python letmein.py
+python letmein.py 18020293 testpassword
 <RequestsCookieJar[<Cookie __RequestVerificationToken=Bx1tfbILleOSxmTmKVL7WRAn-hxweyUf44kSUtjXShMkipaWGrHnpl5ipb6RxHDGdBh-tgQnii0bqbFzscdO80AuB4s1 for />, <Cookie ASP.NET_SessionId=1r0py2151btzpvljqrmdpxky for dangkyhoc.vnu.edu.vn/>]>
 ```
 
@@ -16,7 +16,7 @@ then paste the value of `ASP.NET_SessionId` into browser's cookie editor.
 A script to get `data-rowindex of all` subjects available, save to `out.txt`.
 
 ```
-python getmappings.py
+python getmappings.py 18020293 testpassword
 ```
 
 ## hasclass.py
@@ -42,7 +42,7 @@ Continuously register for a subject. Subject code is the index from `getmappings
 Directly edit the `TARGET` in the file.
 
 ```
-python dangkyhoc.py
+python dangkyhoc.py 18020293 testpassword 123
 ```
 
 ## concurrency_in_dkmh.go

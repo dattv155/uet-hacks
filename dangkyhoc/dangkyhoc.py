@@ -14,7 +14,9 @@ from pprint import pprint
 # requests_log.setLevel(logging.DEBUG)
 # requests_log.propagate = True
 
-TARGET = 114
+USERNAME = sys.argv[1]
+PASSWORD = sys.argv[2]
+TARGET = sys.argv[3]
 
 URL = "http://dangkyhoc.vnu.edu.vn/dang-nhap/"
 URL_PICK = f"http://dangkyhoc.vnu.edu.vn/chon-mon-hoc/{TARGET}/1/1"
@@ -24,8 +26,6 @@ URL_FIN = "http://dangkyhoc.vnu.edu.vn/xac-nhan-dang-ky/1"
 
 CSRF_1 = "Bx1tfbILleOSxmTmKVL7WRAn-hxweyUf44kSUtjXShMkipaWGrHnpl5ipb6RxHDGdBh-tgQnii0bqbFzscdO80AuB4s1"
 CSRF_2 = "cP9Q5HM_m1WeS0umvbInUJUkQiVFO95phgxli1cln_J7C7cSnmxZcNCWGtY2_uOCE_RyVJA5tguT7AgYaG9Gc8u69CU1"
-USERNAME = os.environ['UET_USER']
-PASSWORD = os.environ['UET_PASS']
 
 headers = {
     "User-Agent": "Mozilla/5.0",

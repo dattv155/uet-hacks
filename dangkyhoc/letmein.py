@@ -23,8 +23,9 @@ URL_FIN = "http://dangkyhoc.vnu.edu.vn/xac-nhan-dang-ky/1"
 
 CSRF_1 = "Bx1tfbILleOSxmTmKVL7WRAn-hxweyUf44kSUtjXShMkipaWGrHnpl5ipb6RxHDGdBh-tgQnii0bqbFzscdO80AuB4s1"
 CSRF_2 = "cP9Q5HM_m1WeS0umvbInUJUkQiVFO95phgxli1cln_J7C7cSnmxZcNCWGtY2_uOCE_RyVJA5tguT7AgYaG9Gc8u69CU1"
-USERNAME = os.environ['UET_USER']
-PASSWORD = os.environ['UET_PASS']
+
+USERNAME = sys.argv[1]
+PASSWORD = sys.argv[2]
 
 headers = {
     "User-Agent": "Mozilla/5.0",
