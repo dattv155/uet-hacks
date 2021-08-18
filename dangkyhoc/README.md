@@ -3,6 +3,7 @@
 ## letmein.py
 
 A script to help with logging in as dkmh website usually deal with high traffic just by hiding the login form.
+Run python script with your account.
 
 ```
 python letmein.py 18020293 testpassword
@@ -14,6 +15,7 @@ then paste the value of `ASP.NET_SessionId` into browser's cookie editor.
 ## getmappings.py
 
 A script to get `data-rowindex of all` subjects available, save to `out.txt`.
+Run python script with your account.
 
 ```
 python getmappings.py 18020293 testpassword
@@ -39,7 +41,7 @@ python hasclass.py "INT1337 13"
 
 Continuously register for a subject. Subject code is the index from `getmappings.py`.
 
-Directly edit the `TARGET` in the file.
+Run python script with your account and row-index of your target course.
 
 ```
 python dangkyhoc.py 18020293 testpassword 123
